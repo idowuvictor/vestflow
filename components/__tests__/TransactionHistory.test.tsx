@@ -12,6 +12,7 @@ vi.mock("@/lib/WalletContext", () => ({
 
 vi.mock("@/lib/stellar", () => ({
   NETWORK: "testnet",
+  NATIVE_TOKEN: "CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC",
   stroopsToXlm: (val: bigint) => (Number(val) / 10_000_000).toFixed(2),
 }));
 

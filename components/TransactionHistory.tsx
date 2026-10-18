@@ -5,7 +5,8 @@ import { NETWORK, stroopsToXlm } from "@/lib/stellar";
 import { useWallet } from "@/lib/WalletContext";
 import SearchFilterBar from "@/components/SearchFilterBar";
 import { NoSearchResultsEmptyState } from "@/components/EmptyState";
-import { matchesAddressOrToken } from "@/lib/tokens";
+import { matchesAddressOrToken, getTokenSymbol } from "@/lib/tokens";
+import TokenIcon from "@/components/TokenIcon";
 
 import { exportTransactionHistoryCSV } from "@/lib/csvExport";
 
@@ -262,12 +263,24 @@ export default function TransactionHistory() {
                       )}
                     </td>
                     <td className="py-3 pr-4 text-zinc-400 font-mono text-xs">
-                      {event.token ? `${event.token.slice(0, 6)}...` : <span className="text-zinc-600">—</span>}
+                      {event.token ? (
+                        <span className="inline-flex items-center gap-1.5">
+                          <TokenIcon token={event.token} />
+                          {event.token.slice(0, 6)}...
+                        </span>
+                      ) : (
+                        <span className="text-zinc-600">—</span>
+                      )}
                     </td>
                     <td className="py-3 pr-4 text-zinc-300 font-mono">
-                      {eventAmount(event) !== null
-                        ? `${stroopsToXlm(BigInt(eventAmount(event)!))} XLM`
-                        : <span className="text-zinc-600">—</span>}
+                      {eventAmount(event) !== null ? (
+                        <span className="inline-flex items-center gap-1.5">
+                          <TokenIcon token={event.token} />
+                          {`${stroopsToXlm(BigInt(eventAmount(event)!))} ${event.token ? getTokenSymbol(event.token) : "XLM"}`}
+                        </span>
+                      ) : (
+                        <span className="text-zinc-600">—</span>
+                      )}
                     </td>
                     <td className="py-3 pr-4 text-zinc-400">
                       {formatEventDate(event.ledger_closed_at)}

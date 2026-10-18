@@ -3,6 +3,7 @@
 import { useEffect, useState, useCallback } from "react";
 import Link from "next/link";
 import { NATIVE_TOKEN, NETWORK, stroopsToXlm } from "@/lib/stellar";
+import TokenIcon from "@/components/TokenIcon";
 
 interface ActivityEvent {
   id: string;
@@ -151,8 +152,11 @@ export default function ActivityFeed({ publicKey, refreshKey }: ActivityFeedProp
                 {getEventIcon(event)}
               </span>
               <div className="min-w-0 flex-1">
-                <p className="text-zinc-200">
-                  {formatEventDescription(event, publicKey)}
+                <p className="text-zinc-200 flex items-center gap-1.5">
+                  {(event.event_type === "given" || event.event_type === "collected") && (
+                    <TokenIcon token={event.token} />
+                  )}
+                  <span>{formatEventDescription(event, publicKey)}</span>
                 </p>
                 {counterparty && (
                   <Link

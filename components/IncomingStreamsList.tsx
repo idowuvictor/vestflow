@@ -4,6 +4,7 @@ import { useEffect, useState, useCallback } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { NATIVE_TOKEN, NETWORK, stroopsToXlm } from "@/lib/stellar";
 import StreamListSkeleton from "@/components/StreamListSkeleton";
+import TokenIcon from "@/components/TokenIcon";
 
 interface IncomingStream {
   sender: string;
@@ -124,22 +125,26 @@ export default function IncomingStreamsList({ publicKey, refreshKey }: IncomingS
                     </span>
                   )}
                 </div>
-                <div className="flex flex-wrap gap-x-4 gap-y-0.5 text-xs text-zinc-500">
-                  <span>
+                  <span className="inline-flex items-center gap-1">
                     Rate:{" "}
-                    <span className="text-zinc-300">
+                    <span className="text-zinc-300 inline-flex items-center gap-1 font-mono">
+                      <TokenIcon token={stream.token} />
                       {stroopsToXlm(stream.ratePerSec)}/s
                     </span>
                   </span>
-                  <span>
+                  <span className="inline-flex items-center gap-1">
                     Daily:{" "}
-                    <span className="text-zinc-300">
+                    <span className="text-zinc-300 inline-flex items-center gap-1 font-mono">
+                      <TokenIcon token={stream.token} />
                       {stroopsToXlm(ratePerDay)} {tokenLabel(stream.token)}
                     </span>
                   </span>
-                  <span>
+                  <span className="inline-flex items-center gap-1">
                     Token:{" "}
-                    <span className="text-zinc-300">{tokenLabel(stream.token)}</span>
+                    <span className="text-zinc-300 inline-flex items-center gap-1 font-mono">
+                      <TokenIcon token={stream.token} />
+                      {tokenLabel(stream.token)}
+                    </span>
                   </span>
                 </div>
               </div>

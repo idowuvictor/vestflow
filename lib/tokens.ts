@@ -1,9 +1,14 @@
 import { NATIVE_TOKEN } from "./stellar";
 
+export const USDC_TESTNET_TOKEN = "CBIELTK6YBZJU5UP2WWQEUCYKLPU6AUNZ2BQ4WWFEIE3USCIHMXQDAMA";
+
 export function getTokenSymbol(tokenAddress?: string | null): string {
   if (!tokenAddress) return "XLM";
   if (tokenAddress === NATIVE_TOKEN || tokenAddress === "native" || tokenAddress.toUpperCase() === "XLM") {
     return "XLM";
+  }
+  if (tokenAddress.toUpperCase() === "USDC" || tokenAddress === USDC_TESTNET_TOKEN) {
+    return "USDC";
   }
   // Shorten contract ID if long
   if (tokenAddress.length > 12) {

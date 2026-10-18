@@ -25,6 +25,8 @@ contracts/lcov.info
 # misc
 .DS_Store
 *.pem
+*.db
+*.db-*
 
 # debug
 npm-debug.log*

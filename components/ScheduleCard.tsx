@@ -21,6 +21,7 @@ import AddressLabel from "@/components/AddressLabel";
 import { useXlmPrice, formatUsd } from "@/lib/price";
 import { useCountdown, formatCountdown } from "@/hooks/useCountdown";
 import WalletConnectionGuard from "@/components/WalletConnectionGuard";
+import TokenIcon from "@/components/TokenIcon";
 
 export default function ScheduleCard({
   schedule,
@@ -139,14 +140,20 @@ export default function ScheduleCard({
         </div>
         <div>
           <span className="text-zinc-600">Total</span>
-          <p className="text-zinc-300 mt-0.5">{stroopsToXlm(schedule.total_amount)} XLM</p>
+          <p className="text-zinc-300 mt-0.5 flex items-center gap-1.5">
+            <TokenIcon token={schedule.token} symbol={tokenSymbol} />
+            <span>{stroopsToXlm(schedule.total_amount)} {isNative ? "XLM" : tokenSymbol}</span>
+          </p>
           {xlmPrice !== null && (
             <p className="text-zinc-500 text-xs">{formatUsd(schedule.total_amount, xlmPrice)}</p>
           )}
         </div>
         <div>
           <span className="text-zinc-600">Claimed</span>
-          <p className="text-zinc-300 mt-0.5">{stroopsToXlm(schedule.claimed)} XLM</p>
+          <p className="text-zinc-300 mt-0.5 flex items-center gap-1.5">
+            <TokenIcon token={schedule.token} symbol={tokenSymbol} />
+            <span>{stroopsToXlm(schedule.claimed)} {isNative ? "XLM" : tokenSymbol}</span>
+          </p>
           {xlmPrice !== null && (
             <p className="text-zinc-500 text-xs">{formatUsd(schedule.claimed, xlmPrice)}</p>
           )}
