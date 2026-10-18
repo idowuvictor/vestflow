@@ -23,6 +23,8 @@ import {
 } from "@/lib/stellar";
 import { getTokenSymbol, matchesAddressOrToken } from "@/lib/tokens";
 import { useAddressBook } from "@/hooks/useAddressBook";
+import { useWallet } from "@/lib/WalletContext";
+import TokenIcon from "@/components/TokenIcon";
 
 interface ProfileSupplementalData {
   outgoing_streams: Array<{
@@ -59,7 +61,9 @@ interface ProfileViewProps {
 }
 
 export default function ProfileView({ address }: ProfileViewProps) {
+  const { publicKey } = useWallet();
   const { getLabel } = useAddressBook();
+  const isOwnProfile = Boolean(publicKey && publicKey === address);
   const [schedules, setSchedules] = useState<ScheduleData[]>([]);
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState<"all" | "grantor" | "beneficiary">("all");
@@ -147,11 +151,15 @@ export default function ProfileView({ address }: ProfileViewProps) {
   }, [tabFiltered, query, getLabel]);
 
   const customLabel = getLabel(address);
-  const gives = supplemental?.gives.records ?? [];
+  const gives = supplemental?.gives?.records ?? [];
   const outgoingStreams = supplemental?.outgoing_streams ?? [];
   const ownedLists = supplemental?.drips_lists ?? [];
-  const hasActivity = schedules.length > 0 || splits.receivers.length > 0 ||
-    gives.length > 0 || outgoingStreams.length > 0 || ownedLists.length > 0;
+  const hasActivity =
+    schedules.length > 0 ||
+    (splits?.receivers?.length ?? 0) > 0 ||
+    gives.length > 0 ||
+    outgoingStreams.length > 0 ||
+    ownedLists.length > 0;
 
   return (
     <>
@@ -179,10 +187,26 @@ export default function ProfileView({ address }: ProfileViewProps) {
               </div>
             </div>
 
-            {/* Profile actions: fund this project (#812) + share (#648) */}
-            <div className="flex items-center gap-3">
+            {/* Profile actions: fund this project (#812) + share (#648) + invite to drips (#1041) */}
+            <div className="flex items-center gap-3 flex-wrap">
               <FundProjectButton address={address} />
               <CopyLinkButton label="Copy Profile Link" />
+              {!isOwnProfile && (
+                <a
+                  href={`mailto:?subject=${encodeURIComponent(`Check out ${address} on Drips`)}&body=${encodeURIComponent(
+                    `Check out ${address}'s streaming profile on Drips: ${typeof window !== "undefined" ? window.location.href : `https://vestflow.app/profile/${address}`}`
+                  )}`}
+                  className="text-sm text-zinc-400 hover:text-white border border-white/10 rounded-lg px-3 py-2 transition-colors flex items-center gap-1.5"
+                  aria-label="Invite to Drips"
+                  title="Invite via email"
+                  data-testid="invite-to-drips-btn"
+                >
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                  Invite to Drips
+                </a>
+              )}
               {stats.activeCount > 0 && (
                 <button
                   onClick={() => {
@@ -211,12 +235,18 @@ export default function ProfileView({ address }: ProfileViewProps) {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t border-white/5">
             <div className="p-3 bg-white/3 rounded-xl border border-white/5">
               <p className="text-xs text-zinc-400 uppercase tracking-wider mb-1">Total Outgoing</p>
-              <p className="text-lg font-bold text-white">{stroopsToXlm(stats.totalGranted)} XLM</p>
+              <p className="text-lg font-bold text-white flex items-center gap-1.5">
+                <TokenIcon token="XLM" />
+                {stroopsToXlm(stats.totalGranted)} XLM
+              </p>
               <p className="text-[11px] text-zinc-500">as grantor</p>
             </div>
             <div className="p-3 bg-white/3 rounded-xl border border-white/5">
               <p className="text-xs text-zinc-400 uppercase tracking-wider mb-1">Total Inbound</p>
-              <p className="text-lg font-bold text-emerald-400">{stroopsToXlm(stats.totalReceiving)} XLM</p>
+              <p className="text-lg font-bold text-emerald-400 flex items-center gap-1.5">
+                <TokenIcon token="XLM" />
+                {stroopsToXlm(stats.totalReceiving)} XLM
+              </p>
               <p className="text-[11px] text-zinc-500">as beneficiary</p>
             </div>
             <div className="p-3 bg-white/3 rounded-xl border border-white/5">
@@ -318,13 +348,19 @@ export default function ProfileView({ address }: ProfileViewProps) {
                   {outgoingStreams.map((stream, index) => (
                     <div key={`${stream.receiver}-${stream.token}-${index}`} className="flex items-center justify-between gap-4 text-sm">
                       <span className="text-zinc-400">Streaming to <AddressLabel address={stream.receiver} compact /></span>
-                      <span className="font-mono text-emerald-300">{stroopsToXlm(BigInt(stream.rate_per_second))} {getTokenSymbol(stream.token)}/s</span>
+                      <span className="font-mono text-emerald-300 flex items-center gap-1.5">
+                        <TokenIcon token={stream.token} />
+                        {stroopsToXlm(BigInt(stream.rate_per_second))} {getTokenSymbol(stream.token)}/s
+                      </span>
                     </div>
                   ))}
                   {gives.map(give => (
                     <div key={give.id} className="flex items-center justify-between gap-4 text-sm border-t border-white/5 pt-3">
                       <span className="text-zinc-400">{give.sender === address ? "Gave to" : "Received from"} <AddressLabel address={give.sender === address ? give.receiver : give.sender} compact /></span>
-                      <span className="font-mono text-white">{stroopsToXlm(BigInt(give.amount_stroops))} {getTokenSymbol(give.token)}</span>
+                      <span className="font-mono text-white flex items-center gap-1.5">
+                        <TokenIcon token={give.token} />
+                        {stroopsToXlm(BigInt(give.amount_stroops))} {getTokenSymbol(give.token)}
+                      </span>
                     </div>
                   ))}
                 </div>
@@ -338,7 +374,11 @@ export default function ProfileView({ address }: ProfileViewProps) {
                   {ownedLists.map(list => (
                     <Link key={list.id} href={`/lists/${encodeURIComponent(list.id)}`} className="border border-white/10 rounded-lg p-4 hover:border-violet-500/40 transition-colors">
                       <p className="font-semibold text-white">{list.name}</p>
-                      <p className="text-xs text-zinc-500 mt-1">{list.member_count} members · {getTokenSymbol(list.token)}</p>
+                      <div className="text-xs text-zinc-500 mt-1 flex items-center gap-1.5">
+                        <span>{list.member_count} members ·</span>
+                        <TokenIcon token={list.token} />
+                        <span>{getTokenSymbol(list.token)}</span>
+                      </div>
                     </Link>
                   ))}
                 </div>

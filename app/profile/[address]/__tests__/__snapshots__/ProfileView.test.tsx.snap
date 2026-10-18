@@ -55,8 +55,31 @@ exports[`ProfileView snapshots > renders a fully active profile (streams + split
           </div>
         </div>
         <div
-          class="flex items-center gap-3"
+          class="flex items-center gap-3 flex-wrap"
         >
+          <a
+            aria-label="Fund this project: start a stream to GPROFILEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPRFL"
+            class="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 min-h-[44px] rounded-lg border transition-all border-violet-500/50 bg-violet-500/10 text-violet-200 hover:border-violet-400 hover:text-white hover:bg-violet-500/20"
+            href="/app/streams/new?beneficiary=GPROFILEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPRFL"
+            title="Start a vesting stream to this account"
+          >
+            <svg
+              aria-hidden="true"
+              class="h-4 w-4 shrink-0"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 5v14M5 12h14"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            Fund this project
+          </a>
           <div
             class="relative inline-flex items-center"
           >
@@ -86,6 +109,45 @@ exports[`ProfileView snapshots > renders a fully active profile (streams + split
               </span>
             </button>
           </div>
+          <a
+            aria-label="Invite to Drips"
+            class="text-sm text-zinc-400 hover:text-white border border-white/10 rounded-lg px-3 py-2 transition-colors flex items-center gap-1.5"
+            data-testid="invite-to-drips-btn"
+            href="mailto:?subject=Check%20out%20GPROFILEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPRFL%20on%20Drips&body=Check%20out%20GPROFILEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPRFL's%20streaming%20profile%20on%20Drips%3A%20http%3A%2F%2Flocalhost%3A3000%2F"
+            title="Invite via email"
+          >
+            <svg
+              aria-hidden="true"
+              class="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+              />
+            </svg>
+            Invite to Drips
+          </a>
+          <button
+            aria-label="Share to Twitter"
+            class="text-sm text-zinc-400 hover:text-white border border-white/10 rounded-lg px-3 py-2 transition-colors flex items-center gap-1.5"
+            title="Share profile on Twitter"
+          >
+            <svg
+              class="w-4 h-4"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2s9 5 20 5a9.5 9.5 0 00-9-5.5c4.75-2.35 7-7 7-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0323 3z"
+              />
+            </svg>
+            Share on X
+          </button>
         </div>
       </div>
       <div
@@ -100,8 +162,19 @@ exports[`ProfileView snapshots > renders a fully active profile (streams + split
             Total Outgoing
           </p>
           <p
-            class="text-lg font-bold text-white"
+            class="text-lg font-bold text-white flex items-center gap-1.5"
           >
+            <img
+              alt=""
+              aria-hidden="true"
+              class="inline-block shrink-0 rounded-full align-middle "
+              data-testid="token-icon"
+              data-token="XLM"
+              height="16"
+              src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2016%2016%22%20width%3D%2216%22%20height%3D%2216%22%3E%3Ccircle%20cx%3D%228%22%20cy%3D%228%22%20r%3D%228%22%20fill%3D%22%2314B6EB%22%2F%3E%3Cpath%20d%3D%22M8%202.5L9.3%206.7L13.5%208L9.3%209.3L8%2013.5L6.7%209.3L2.5%208L6.7%206.7Z%22%20fill%3D%22white%22%2F%3E%3C%2Fsvg%3E"
+              style="width: 16px; height: 16px;"
+              width="16"
+            />
             10.0
              XLM
           </p>
@@ -120,8 +193,19 @@ exports[`ProfileView snapshots > renders a fully active profile (streams + split
             Total Inbound
           </p>
           <p
-            class="text-lg font-bold text-emerald-400"
+            class="text-lg font-bold text-emerald-400 flex items-center gap-1.5"
           >
+            <img
+              alt=""
+              aria-hidden="true"
+              class="inline-block shrink-0 rounded-full align-middle "
+              data-testid="token-icon"
+              data-token="XLM"
+              height="16"
+              src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2016%2016%22%20width%3D%2216%22%20height%3D%2216%22%3E%3Ccircle%20cx%3D%228%22%20cy%3D%228%22%20r%3D%228%22%20fill%3D%22%2314B6EB%22%2F%3E%3Cpath%20d%3D%22M8%202.5L9.3%206.7L13.5%208L9.3%209.3L8%2013.5L6.7%209.3L2.5%208L6.7%206.7Z%22%20fill%3D%22white%22%2F%3E%3C%2Fsvg%3E"
+              style="width: 16px; height: 16px;"
+              width="16"
+            />
             5.0
              XLM
           </p>
@@ -351,10 +435,24 @@ exports[`ProfileView snapshots > renders a fully active profile (streams + split
               Total
             </span>
             <p
-              class="text-zinc-300 mt-0.5"
+              class="text-zinc-300 mt-0.5 flex items-center gap-1.5"
             >
-              10.0
-               XLM
+              <img
+                alt=""
+                aria-hidden="true"
+                class="inline-block shrink-0 rounded-full align-middle "
+                data-testid="token-icon"
+                data-token="XLM"
+                height="16"
+                src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2016%2016%22%20width%3D%2216%22%20height%3D%2216%22%3E%3Ccircle%20cx%3D%228%22%20cy%3D%228%22%20r%3D%228%22%20fill%3D%22%2314B6EB%22%2F%3E%3Cpath%20d%3D%22M8%202.5L9.3%206.7L13.5%208L9.3%209.3L8%2013.5L6.7%209.3L2.5%208L6.7%206.7Z%22%20fill%3D%22white%22%2F%3E%3C%2Fsvg%3E"
+                style="width: 16px; height: 16px;"
+                width="16"
+              />
+              <span>
+                10.0
+                 
+                XLM
+              </span>
             </p>
             <p
               class="text-zinc-500 text-xs"
@@ -369,10 +467,24 @@ exports[`ProfileView snapshots > renders a fully active profile (streams + split
               Claimed
             </span>
             <p
-              class="text-zinc-300 mt-0.5"
+              class="text-zinc-300 mt-0.5 flex items-center gap-1.5"
             >
-              0.0
-               XLM
+              <img
+                alt=""
+                aria-hidden="true"
+                class="inline-block shrink-0 rounded-full align-middle "
+                data-testid="token-icon"
+                data-token="XLM"
+                height="16"
+                src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2016%2016%22%20width%3D%2216%22%20height%3D%2216%22%3E%3Ccircle%20cx%3D%228%22%20cy%3D%228%22%20r%3D%228%22%20fill%3D%22%2314B6EB%22%2F%3E%3Cpath%20d%3D%22M8%202.5L9.3%206.7L13.5%208L9.3%209.3L8%2013.5L6.7%209.3L2.5%208L6.7%206.7Z%22%20fill%3D%22white%22%2F%3E%3C%2Fsvg%3E"
+                style="width: 16px; height: 16px;"
+                width="16"
+              />
+              <span>
+                0.0
+                 
+                XLM
+              </span>
             </p>
             <p
               class="text-zinc-500 text-xs"
@@ -593,10 +705,24 @@ exports[`ProfileView snapshots > renders a fully active profile (streams + split
               Total
             </span>
             <p
-              class="text-zinc-300 mt-0.5"
+              class="text-zinc-300 mt-0.5 flex items-center gap-1.5"
             >
-              5.0
-               XLM
+              <img
+                alt=""
+                aria-hidden="true"
+                class="inline-block shrink-0 rounded-full align-middle "
+                data-testid="token-icon"
+                data-token="XLM"
+                height="16"
+                src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2016%2016%22%20width%3D%2216%22%20height%3D%2216%22%3E%3Ccircle%20cx%3D%228%22%20cy%3D%228%22%20r%3D%228%22%20fill%3D%22%2314B6EB%22%2F%3E%3Cpath%20d%3D%22M8%202.5L9.3%206.7L13.5%208L9.3%209.3L8%2013.5L6.7%209.3L2.5%208L6.7%206.7Z%22%20fill%3D%22white%22%2F%3E%3C%2Fsvg%3E"
+                style="width: 16px; height: 16px;"
+                width="16"
+              />
+              <span>
+                5.0
+                 
+                XLM
+              </span>
             </p>
             <p
               class="text-zinc-500 text-xs"
@@ -611,10 +737,24 @@ exports[`ProfileView snapshots > renders a fully active profile (streams + split
               Claimed
             </span>
             <p
-              class="text-zinc-300 mt-0.5"
+              class="text-zinc-300 mt-0.5 flex items-center gap-1.5"
             >
-              0.0
-               XLM
+              <img
+                alt=""
+                aria-hidden="true"
+                class="inline-block shrink-0 rounded-full align-middle "
+                data-testid="token-icon"
+                data-token="XLM"
+                height="16"
+                src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2016%2016%22%20width%3D%2216%22%20height%3D%2216%22%3E%3Ccircle%20cx%3D%228%22%20cy%3D%228%22%20r%3D%228%22%20fill%3D%22%2314B6EB%22%2F%3E%3Cpath%20d%3D%22M8%202.5L9.3%206.7L13.5%208L9.3%209.3L8%2013.5L6.7%209.3L2.5%208L6.7%206.7Z%22%20fill%3D%22white%22%2F%3E%3C%2Fsvg%3E"
+                style="width: 16px; height: 16px;"
+                width="16"
+              />
+              <span>
+                0.0
+                 
+                XLM
+              </span>
             </p>
             <p
               class="text-zinc-500 text-xs"
@@ -714,6 +854,225 @@ exports[`ProfileView snapshots > renders a fully active profile (streams + split
     <div
       class="mt-10 space-y-6"
     >
+      <div
+        class="card p-6 mb-6"
+      >
+        <h2
+          class="text-lg font-semibold mb-4"
+        >
+          Stream Network
+        </h2>
+        <div
+          class="overflow-x-auto -mx-6 px-6"
+        >
+          <svg
+            class="min-w-full"
+            height="300"
+            viewBox="0 0 1000 300"
+            width="1000"
+          >
+            <g>
+              <line
+                opacity="0.3"
+                stroke="#10b981"
+                stroke-width="2"
+                x1="380"
+                x2="500"
+                y1="150.00000000000003"
+                y2="150"
+              />
+              <defs>
+                <marker
+                  id="arrow-GCOUNTERPARTYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACPTY"
+                  markerHeight="10"
+                  markerUnits="strokeWidth"
+                  markerWidth="10"
+                  orient="auto"
+                  refX="8"
+                  refY="3"
+                >
+                  <path
+                    d="M0,0 L0,6 L9,3 z"
+                    fill="#10b981"
+                    opacity="0.3"
+                  />
+                </marker>
+              </defs>
+              <line
+                marker-end="url(#arrow-GCOUNTERPARTYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACPTY)"
+                opacity="0.3"
+                stroke="#10b981"
+                stroke-width="2"
+                x1="380"
+                x2="500"
+                y1="150.00000000000003"
+                y2="150"
+              />
+            </g>
+            <g>
+              <line
+                opacity="0.3"
+                stroke="#ef4444"
+                stroke-width="2"
+                x1="380"
+                x2="500"
+                y1="150.00000000000003"
+                y2="150"
+              />
+              <defs>
+                <marker
+                  id="arrow-GCOUNTERPARTYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACPTY"
+                  markerHeight="10"
+                  markerUnits="strokeWidth"
+                  markerWidth="10"
+                  orient="auto"
+                  refX="8"
+                  refY="3"
+                >
+                  <path
+                    d="M0,0 L0,6 L9,3 z"
+                    fill="#ef4444"
+                    opacity="0.3"
+                  />
+                </marker>
+              </defs>
+              <line
+                marker-end="url(#arrow-GCOUNTERPARTYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACPTY)"
+                opacity="0.3"
+                stroke="#ef4444"
+                stroke-width="2"
+                x1="380"
+                x2="500"
+                y1="150.00000000000003"
+                y2="150"
+              />
+            </g>
+            <g>
+              <circle
+                class="cursor-pointer hover:opacity-100 transition-opacity"
+                cx="380"
+                cy="150.00000000000003"
+                fill="#10b981"
+                opacity="0.8"
+                r="14"
+              />
+              <foreignobject
+                height="60"
+                width="90"
+                x="335"
+                y="175.00000000000003"
+              >
+                <a
+                  class="block text-center text-xs text-zinc-300 hover:text-white transition-colors"
+                  href="/profile/GCOUNTERPARTYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACPTY"
+                >
+                  <div
+                    class="font-mono"
+                  >
+                    GCOUNTERPA...CPTY
+                  </div>
+                  <div
+                    class="text-[10px] text-zinc-500 mt-0.5"
+                  >
+                    0.00864
+                     XLM/d
+                  </div>
+                </a>
+              </foreignobject>
+            </g>
+            <g>
+              <circle
+                class="cursor-pointer hover:opacity-100 transition-opacity"
+                cx="500"
+                cy="150"
+                fill="#7c3aed"
+                opacity="0.8"
+                r="16"
+              />
+              <foreignobject
+                height="60"
+                width="90"
+                x="455"
+                y="175"
+              >
+                <a
+                  class="block text-center text-xs text-zinc-300 hover:text-white transition-colors"
+                  href="/profile/GPROFILEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPRFL"
+                >
+                  <div
+                    class="font-mono"
+                  >
+                    GPROFILEAA...PRFL
+                  </div>
+                  <div
+                    class="text-[10px] text-zinc-500 mt-0.5"
+                  >
+                    0.0
+                     XLM/d
+                  </div>
+                </a>
+              </foreignobject>
+            </g>
+            <g>
+              <circle
+                class="cursor-pointer hover:opacity-100 transition-opacity"
+                cx="380"
+                cy="150.00000000000003"
+                fill="#ef4444"
+                opacity="0.8"
+                r="14"
+              />
+              <foreignobject
+                height="60"
+                width="90"
+                x="335"
+                y="175.00000000000003"
+              >
+                <a
+                  class="block text-center text-xs text-zinc-300 hover:text-white transition-colors"
+                  href="/profile/GCOUNTERPARTYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACPTY"
+                >
+                  <div
+                    class="font-mono"
+                  >
+                    GCOUNTERPA...CPTY
+                  </div>
+                  <div
+                    class="text-[10px] text-zinc-500 mt-0.5"
+                  >
+                    0.02592
+                     XLM/d
+                  </div>
+                </a>
+              </foreignobject>
+            </g>
+          </svg>
+        </div>
+        <div
+          class="mt-4 flex items-center gap-6 text-xs text-zinc-500"
+        >
+          <div
+            class="flex items-center gap-2"
+          >
+            <div
+              class="w-3 h-3 rounded-full bg-emerald-500"
+            />
+            <span>
+              Incoming
+            </span>
+          </div>
+          <div
+            class="flex items-center gap-2"
+          >
+            <div
+              class="w-3 h-3 rounded-full bg-red-500"
+            />
+            <span>
+              Outgoing
+            </span>
+          </div>
+        </div>
+      </div>
       <section
         class="card p-6"
       >
@@ -809,8 +1168,19 @@ exports[`ProfileView snapshots > renders a fully active profile (streams + split
               </div>
             </span>
             <span
-              class="font-mono text-emerald-300"
+              class="font-mono text-emerald-300 flex items-center gap-1.5"
             >
+              <img
+                alt=""
+                aria-hidden="true"
+                class="inline-block shrink-0 rounded-full align-middle "
+                data-testid="token-icon"
+                data-token="XLM"
+                height="16"
+                src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2016%2016%22%20width%3D%2216%22%20height%3D%2216%22%3E%3Ccircle%20cx%3D%228%22%20cy%3D%228%22%20r%3D%228%22%20fill%3D%22%2314B6EB%22%2F%3E%3Cpath%20d%3D%22M8%202.5L9.3%206.7L13.5%208L9.3%209.3L8%2013.5L6.7%209.3L2.5%208L6.7%206.7Z%22%20fill%3D%22white%22%2F%3E%3C%2Fsvg%3E"
+                style="width: 16px; height: 16px;"
+                width="16"
+              />
               0.0001
                
               XLM
@@ -841,8 +1211,19 @@ exports[`ProfileView snapshots > renders a fully active profile (streams + split
               </div>
             </span>
             <span
-              class="font-mono text-white"
+              class="font-mono text-white flex items-center gap-1.5"
             >
+              <img
+                alt=""
+                aria-hidden="true"
+                class="inline-block shrink-0 rounded-full align-middle "
+                data-testid="token-icon"
+                data-token="XLM"
+                height="16"
+                src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2016%2016%22%20width%3D%2216%22%20height%3D%2216%22%3E%3Ccircle%20cx%3D%228%22%20cy%3D%228%22%20r%3D%228%22%20fill%3D%22%2314B6EB%22%2F%3E%3Cpath%20d%3D%22M8%202.5L9.3%206.7L13.5%208L9.3%209.3L8%2013.5L6.7%209.3L2.5%208L6.7%206.7Z%22%20fill%3D%22white%22%2F%3E%3C%2Fsvg%3E"
+                style="width: 16px; height: 16px;"
+                width="16"
+              />
               25.0
                
               XLM
@@ -872,8 +1253,19 @@ exports[`ProfileView snapshots > renders a fully active profile (streams + split
               </div>
             </span>
             <span
-              class="font-mono text-white"
+              class="font-mono text-white flex items-center gap-1.5"
             >
+              <img
+                alt=""
+                aria-hidden="true"
+                class="inline-block shrink-0 rounded-full align-middle "
+                data-testid="token-icon"
+                data-token="XLM"
+                height="16"
+                src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2016%2016%22%20width%3D%2216%22%20height%3D%2216%22%3E%3Ccircle%20cx%3D%228%22%20cy%3D%228%22%20r%3D%228%22%20fill%3D%22%2314B6EB%22%2F%3E%3Cpath%20d%3D%22M8%202.5L9.3%206.7L13.5%208L9.3%209.3L8%2013.5L6.7%209.3L2.5%208L6.7%206.7Z%22%20fill%3D%22white%22%2F%3E%3C%2Fsvg%3E"
+                style="width: 16px; height: 16px;"
+                width="16"
+              />
               10.0
                
               XLM
@@ -941,8 +1333,31 @@ exports[`ProfileView snapshots > renders a profile with incoming streams only > 
           </div>
         </div>
         <div
-          class="flex items-center gap-3"
+          class="flex items-center gap-3 flex-wrap"
         >
+          <a
+            aria-label="Fund this project: start a stream to GPROFILEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPRFL"
+            class="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 min-h-[44px] rounded-lg border transition-all border-violet-500/50 bg-violet-500/10 text-violet-200 hover:border-violet-400 hover:text-white hover:bg-violet-500/20"
+            href="/app/streams/new?beneficiary=GPROFILEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPRFL"
+            title="Start a vesting stream to this account"
+          >
+            <svg
+              aria-hidden="true"
+              class="h-4 w-4 shrink-0"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 5v14M5 12h14"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            Fund this project
+          </a>
           <div
             class="relative inline-flex items-center"
           >
@@ -972,6 +1387,45 @@ exports[`ProfileView snapshots > renders a profile with incoming streams only > 
               </span>
             </button>
           </div>
+          <a
+            aria-label="Invite to Drips"
+            class="text-sm text-zinc-400 hover:text-white border border-white/10 rounded-lg px-3 py-2 transition-colors flex items-center gap-1.5"
+            data-testid="invite-to-drips-btn"
+            href="mailto:?subject=Check%20out%20GPROFILEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPRFL%20on%20Drips&body=Check%20out%20GPROFILEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPRFL's%20streaming%20profile%20on%20Drips%3A%20http%3A%2F%2Flocalhost%3A3000%2F"
+            title="Invite via email"
+          >
+            <svg
+              aria-hidden="true"
+              class="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+              />
+            </svg>
+            Invite to Drips
+          </a>
+          <button
+            aria-label="Share to Twitter"
+            class="text-sm text-zinc-400 hover:text-white border border-white/10 rounded-lg px-3 py-2 transition-colors flex items-center gap-1.5"
+            title="Share profile on Twitter"
+          >
+            <svg
+              class="w-4 h-4"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2s9 5 20 5a9.5 9.5 0 00-9-5.5c4.75-2.35 7-7 7-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0323 3z"
+              />
+            </svg>
+            Share on X
+          </button>
         </div>
       </div>
       <div
@@ -986,8 +1440,19 @@ exports[`ProfileView snapshots > renders a profile with incoming streams only > 
             Total Outgoing
           </p>
           <p
-            class="text-lg font-bold text-white"
+            class="text-lg font-bold text-white flex items-center gap-1.5"
           >
+            <img
+              alt=""
+              aria-hidden="true"
+              class="inline-block shrink-0 rounded-full align-middle "
+              data-testid="token-icon"
+              data-token="XLM"
+              height="16"
+              src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2016%2016%22%20width%3D%2216%22%20height%3D%2216%22%3E%3Ccircle%20cx%3D%228%22%20cy%3D%228%22%20r%3D%228%22%20fill%3D%22%2314B6EB%22%2F%3E%3Cpath%20d%3D%22M8%202.5L9.3%206.7L13.5%208L9.3%209.3L8%2013.5L6.7%209.3L2.5%208L6.7%206.7Z%22%20fill%3D%22white%22%2F%3E%3C%2Fsvg%3E"
+              style="width: 16px; height: 16px;"
+              width="16"
+            />
             0.0
              XLM
           </p>
@@ -1006,8 +1471,19 @@ exports[`ProfileView snapshots > renders a profile with incoming streams only > 
             Total Inbound
           </p>
           <p
-            class="text-lg font-bold text-emerald-400"
+            class="text-lg font-bold text-emerald-400 flex items-center gap-1.5"
           >
+            <img
+              alt=""
+              aria-hidden="true"
+              class="inline-block shrink-0 rounded-full align-middle "
+              data-testid="token-icon"
+              data-token="XLM"
+              height="16"
+              src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2016%2016%22%20width%3D%2216%22%20height%3D%2216%22%3E%3Ccircle%20cx%3D%228%22%20cy%3D%228%22%20r%3D%228%22%20fill%3D%22%2314B6EB%22%2F%3E%3Cpath%20d%3D%22M8%202.5L9.3%206.7L13.5%208L9.3%209.3L8%2013.5L6.7%209.3L2.5%208L6.7%206.7Z%22%20fill%3D%22white%22%2F%3E%3C%2Fsvg%3E"
+              style="width: 16px; height: 16px;"
+              width="16"
+            />
             5.0
              XLM
           </p>
@@ -1237,10 +1713,24 @@ exports[`ProfileView snapshots > renders a profile with incoming streams only > 
               Total
             </span>
             <p
-              class="text-zinc-300 mt-0.5"
+              class="text-zinc-300 mt-0.5 flex items-center gap-1.5"
             >
-              5.0
-               XLM
+              <img
+                alt=""
+                aria-hidden="true"
+                class="inline-block shrink-0 rounded-full align-middle "
+                data-testid="token-icon"
+                data-token="XLM"
+                height="16"
+                src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2016%2016%22%20width%3D%2216%22%20height%3D%2216%22%3E%3Ccircle%20cx%3D%228%22%20cy%3D%228%22%20r%3D%228%22%20fill%3D%22%2314B6EB%22%2F%3E%3Cpath%20d%3D%22M8%202.5L9.3%206.7L13.5%208L9.3%209.3L8%2013.5L6.7%209.3L2.5%208L6.7%206.7Z%22%20fill%3D%22white%22%2F%3E%3C%2Fsvg%3E"
+                style="width: 16px; height: 16px;"
+                width="16"
+              />
+              <span>
+                5.0
+                 
+                XLM
+              </span>
             </p>
             <p
               class="text-zinc-500 text-xs"
@@ -1255,10 +1745,24 @@ exports[`ProfileView snapshots > renders a profile with incoming streams only > 
               Claimed
             </span>
             <p
-              class="text-zinc-300 mt-0.5"
+              class="text-zinc-300 mt-0.5 flex items-center gap-1.5"
             >
-              0.0
-               XLM
+              <img
+                alt=""
+                aria-hidden="true"
+                class="inline-block shrink-0 rounded-full align-middle "
+                data-testid="token-icon"
+                data-token="XLM"
+                height="16"
+                src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2016%2016%22%20width%3D%2216%22%20height%3D%2216%22%3E%3Ccircle%20cx%3D%228%22%20cy%3D%228%22%20r%3D%228%22%20fill%3D%22%2314B6EB%22%2F%3E%3Cpath%20d%3D%22M8%202.5L9.3%206.7L13.5%208L9.3%209.3L8%2013.5L6.7%209.3L2.5%208L6.7%206.7Z%22%20fill%3D%22white%22%2F%3E%3C%2Fsvg%3E"
+                style="width: 16px; height: 16px;"
+                width="16"
+              />
+              <span>
+                0.0
+                 
+                XLM
+              </span>
             </p>
             <p
               class="text-zinc-500 text-xs"
@@ -1358,6 +1862,154 @@ exports[`ProfileView snapshots > renders a profile with incoming streams only > 
     <div
       class="mt-10 space-y-6"
     >
+      <div
+        class="card p-6 mb-6"
+      >
+        <h2
+          class="text-lg font-semibold mb-4"
+        >
+          Stream Network
+        </h2>
+        <div
+          class="overflow-x-auto -mx-6 px-6"
+        >
+          <svg
+            class="min-w-full"
+            height="300"
+            viewBox="0 0 1000 300"
+            width="1000"
+          >
+            <g>
+              <line
+                opacity="0.3"
+                stroke="#10b981"
+                stroke-width="2"
+                x1="380"
+                x2="500"
+                y1="150"
+                y2="150"
+              />
+              <defs>
+                <marker
+                  id="arrow-GCOUNTERPARTYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACPTY"
+                  markerHeight="10"
+                  markerUnits="strokeWidth"
+                  markerWidth="10"
+                  orient="auto"
+                  refX="8"
+                  refY="3"
+                >
+                  <path
+                    d="M0,0 L0,6 L9,3 z"
+                    fill="#10b981"
+                    opacity="0.3"
+                  />
+                </marker>
+              </defs>
+              <line
+                marker-end="url(#arrow-GCOUNTERPARTYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACPTY)"
+                opacity="0.3"
+                stroke="#10b981"
+                stroke-width="2"
+                x1="380"
+                x2="500"
+                y1="150"
+                y2="150"
+              />
+            </g>
+            <g>
+              <circle
+                class="cursor-pointer hover:opacity-100 transition-opacity"
+                cx="380"
+                cy="150"
+                fill="#10b981"
+                opacity="0.8"
+                r="14"
+              />
+              <foreignobject
+                height="60"
+                width="90"
+                x="335"
+                y="175"
+              >
+                <a
+                  class="block text-center text-xs text-zinc-300 hover:text-white transition-colors"
+                  href="/profile/GCOUNTERPARTYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACPTY"
+                >
+                  <div
+                    class="font-mono"
+                  >
+                    GCOUNTERPA...CPTY
+                  </div>
+                  <div
+                    class="text-[10px] text-zinc-500 mt-0.5"
+                  >
+                    0.00864
+                     XLM/d
+                  </div>
+                </a>
+              </foreignobject>
+            </g>
+            <g>
+              <circle
+                class="cursor-pointer hover:opacity-100 transition-opacity"
+                cx="500"
+                cy="150"
+                fill="#7c3aed"
+                opacity="0.8"
+                r="16"
+              />
+              <foreignobject
+                height="60"
+                width="90"
+                x="455"
+                y="175"
+              >
+                <a
+                  class="block text-center text-xs text-zinc-300 hover:text-white transition-colors"
+                  href="/profile/GPROFILEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPRFL"
+                >
+                  <div
+                    class="font-mono"
+                  >
+                    GPROFILEAA...PRFL
+                  </div>
+                  <div
+                    class="text-[10px] text-zinc-500 mt-0.5"
+                  >
+                    0.0
+                     XLM/d
+                  </div>
+                </a>
+              </foreignobject>
+            </g>
+          </svg>
+        </div>
+        <div
+          class="mt-4 flex items-center gap-6 text-xs text-zinc-500"
+        >
+          <div
+            class="flex items-center gap-2"
+          >
+            <div
+              class="w-3 h-3 rounded-full bg-emerald-500"
+            />
+            <span>
+              Incoming
+            </span>
+          </div>
+          <div
+            class="flex items-center gap-2"
+          >
+            <div
+              class="w-3 h-3 rounded-full bg-red-500"
+            />
+            <span>
+              Outgoing
+            </span>
+          </div>
+        </div>
+      </div>
       <section
         class="card p-6"
       >
@@ -1432,8 +2084,31 @@ exports[`ProfileView snapshots > renders a profile with outgoing streams only > 
           </div>
         </div>
         <div
-          class="flex items-center gap-3"
+          class="flex items-center gap-3 flex-wrap"
         >
+          <a
+            aria-label="Fund this project: start a stream to GPROFILEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPRFL"
+            class="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 min-h-[44px] rounded-lg border transition-all border-violet-500/50 bg-violet-500/10 text-violet-200 hover:border-violet-400 hover:text-white hover:bg-violet-500/20"
+            href="/app/streams/new?beneficiary=GPROFILEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPRFL"
+            title="Start a vesting stream to this account"
+          >
+            <svg
+              aria-hidden="true"
+              class="h-4 w-4 shrink-0"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 5v14M5 12h14"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            Fund this project
+          </a>
           <div
             class="relative inline-flex items-center"
           >
@@ -1463,6 +2138,45 @@ exports[`ProfileView snapshots > renders a profile with outgoing streams only > 
               </span>
             </button>
           </div>
+          <a
+            aria-label="Invite to Drips"
+            class="text-sm text-zinc-400 hover:text-white border border-white/10 rounded-lg px-3 py-2 transition-colors flex items-center gap-1.5"
+            data-testid="invite-to-drips-btn"
+            href="mailto:?subject=Check%20out%20GPROFILEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPRFL%20on%20Drips&body=Check%20out%20GPROFILEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPRFL's%20streaming%20profile%20on%20Drips%3A%20http%3A%2F%2Flocalhost%3A3000%2F"
+            title="Invite via email"
+          >
+            <svg
+              aria-hidden="true"
+              class="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+              />
+            </svg>
+            Invite to Drips
+          </a>
+          <button
+            aria-label="Share to Twitter"
+            class="text-sm text-zinc-400 hover:text-white border border-white/10 rounded-lg px-3 py-2 transition-colors flex items-center gap-1.5"
+            title="Share profile on Twitter"
+          >
+            <svg
+              class="w-4 h-4"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2s9 5 20 5a9.5 9.5 0 00-9-5.5c4.75-2.35 7-7 7-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0323 3z"
+              />
+            </svg>
+            Share on X
+          </button>
         </div>
       </div>
       <div
@@ -1477,8 +2191,19 @@ exports[`ProfileView snapshots > renders a profile with outgoing streams only > 
             Total Outgoing
           </p>
           <p
-            class="text-lg font-bold text-white"
+            class="text-lg font-bold text-white flex items-center gap-1.5"
           >
+            <img
+              alt=""
+              aria-hidden="true"
+              class="inline-block shrink-0 rounded-full align-middle "
+              data-testid="token-icon"
+              data-token="XLM"
+              height="16"
+              src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2016%2016%22%20width%3D%2216%22%20height%3D%2216%22%3E%3Ccircle%20cx%3D%228%22%20cy%3D%228%22%20r%3D%228%22%20fill%3D%22%2314B6EB%22%2F%3E%3Cpath%20d%3D%22M8%202.5L9.3%206.7L13.5%208L9.3%209.3L8%2013.5L6.7%209.3L2.5%208L6.7%206.7Z%22%20fill%3D%22white%22%2F%3E%3C%2Fsvg%3E"
+              style="width: 16px; height: 16px;"
+              width="16"
+            />
             10.0
              XLM
           </p>
@@ -1497,8 +2222,19 @@ exports[`ProfileView snapshots > renders a profile with outgoing streams only > 
             Total Inbound
           </p>
           <p
-            class="text-lg font-bold text-emerald-400"
+            class="text-lg font-bold text-emerald-400 flex items-center gap-1.5"
           >
+            <img
+              alt=""
+              aria-hidden="true"
+              class="inline-block shrink-0 rounded-full align-middle "
+              data-testid="token-icon"
+              data-token="XLM"
+              height="16"
+              src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2016%2016%22%20width%3D%2216%22%20height%3D%2216%22%3E%3Ccircle%20cx%3D%228%22%20cy%3D%228%22%20r%3D%228%22%20fill%3D%22%2314B6EB%22%2F%3E%3Cpath%20d%3D%22M8%202.5L9.3%206.7L13.5%208L9.3%209.3L8%2013.5L6.7%209.3L2.5%208L6.7%206.7Z%22%20fill%3D%22white%22%2F%3E%3C%2Fsvg%3E"
+              style="width: 16px; height: 16px;"
+              width="16"
+            />
             0.0
              XLM
           </p>
@@ -1728,10 +2464,24 @@ exports[`ProfileView snapshots > renders a profile with outgoing streams only > 
               Total
             </span>
             <p
-              class="text-zinc-300 mt-0.5"
+              class="text-zinc-300 mt-0.5 flex items-center gap-1.5"
             >
-              10.0
-               XLM
+              <img
+                alt=""
+                aria-hidden="true"
+                class="inline-block shrink-0 rounded-full align-middle "
+                data-testid="token-icon"
+                data-token="XLM"
+                height="16"
+                src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2016%2016%22%20width%3D%2216%22%20height%3D%2216%22%3E%3Ccircle%20cx%3D%228%22%20cy%3D%228%22%20r%3D%228%22%20fill%3D%22%2314B6EB%22%2F%3E%3Cpath%20d%3D%22M8%202.5L9.3%206.7L13.5%208L9.3%209.3L8%2013.5L6.7%209.3L2.5%208L6.7%206.7Z%22%20fill%3D%22white%22%2F%3E%3C%2Fsvg%3E"
+                style="width: 16px; height: 16px;"
+                width="16"
+              />
+              <span>
+                10.0
+                 
+                XLM
+              </span>
             </p>
             <p
               class="text-zinc-500 text-xs"
@@ -1746,10 +2496,24 @@ exports[`ProfileView snapshots > renders a profile with outgoing streams only > 
               Claimed
             </span>
             <p
-              class="text-zinc-300 mt-0.5"
+              class="text-zinc-300 mt-0.5 flex items-center gap-1.5"
             >
-              0.0
-               XLM
+              <img
+                alt=""
+                aria-hidden="true"
+                class="inline-block shrink-0 rounded-full align-middle "
+                data-testid="token-icon"
+                data-token="XLM"
+                height="16"
+                src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2016%2016%22%20width%3D%2216%22%20height%3D%2216%22%3E%3Ccircle%20cx%3D%228%22%20cy%3D%228%22%20r%3D%228%22%20fill%3D%22%2314B6EB%22%2F%3E%3Cpath%20d%3D%22M8%202.5L9.3%206.7L13.5%208L9.3%209.3L8%2013.5L6.7%209.3L2.5%208L6.7%206.7Z%22%20fill%3D%22white%22%2F%3E%3C%2Fsvg%3E"
+                style="width: 16px; height: 16px;"
+                width="16"
+              />
+              <span>
+                0.0
+                 
+                XLM
+              </span>
             </p>
             <p
               class="text-zinc-500 text-xs"
@@ -1849,6 +2613,154 @@ exports[`ProfileView snapshots > renders a profile with outgoing streams only > 
     <div
       class="mt-10 space-y-6"
     >
+      <div
+        class="card p-6 mb-6"
+      >
+        <h2
+          class="text-lg font-semibold mb-4"
+        >
+          Stream Network
+        </h2>
+        <div
+          class="overflow-x-auto -mx-6 px-6"
+        >
+          <svg
+            class="min-w-full"
+            height="300"
+            viewBox="0 0 1000 300"
+            width="1000"
+          >
+            <g>
+              <line
+                opacity="0.3"
+                stroke="#ef4444"
+                stroke-width="2"
+                x1="380"
+                x2="500"
+                y1="150.00000000000003"
+                y2="150"
+              />
+              <defs>
+                <marker
+                  id="arrow-GCOUNTERPARTYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACPTY"
+                  markerHeight="10"
+                  markerUnits="strokeWidth"
+                  markerWidth="10"
+                  orient="auto"
+                  refX="8"
+                  refY="3"
+                >
+                  <path
+                    d="M0,0 L0,6 L9,3 z"
+                    fill="#ef4444"
+                    opacity="0.3"
+                  />
+                </marker>
+              </defs>
+              <line
+                marker-end="url(#arrow-GCOUNTERPARTYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACPTY)"
+                opacity="0.3"
+                stroke="#ef4444"
+                stroke-width="2"
+                x1="380"
+                x2="500"
+                y1="150.00000000000003"
+                y2="150"
+              />
+            </g>
+            <g>
+              <circle
+                class="cursor-pointer hover:opacity-100 transition-opacity"
+                cx="500"
+                cy="150"
+                fill="#7c3aed"
+                opacity="0.8"
+                r="16"
+              />
+              <foreignobject
+                height="60"
+                width="90"
+                x="455"
+                y="175"
+              >
+                <a
+                  class="block text-center text-xs text-zinc-300 hover:text-white transition-colors"
+                  href="/profile/GPROFILEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPRFL"
+                >
+                  <div
+                    class="font-mono"
+                  >
+                    GPROFILEAA...PRFL
+                  </div>
+                  <div
+                    class="text-[10px] text-zinc-500 mt-0.5"
+                  >
+                    0.0
+                     XLM/d
+                  </div>
+                </a>
+              </foreignobject>
+            </g>
+            <g>
+              <circle
+                class="cursor-pointer hover:opacity-100 transition-opacity"
+                cx="380"
+                cy="150.00000000000003"
+                fill="#ef4444"
+                opacity="0.8"
+                r="14"
+              />
+              <foreignobject
+                height="60"
+                width="90"
+                x="335"
+                y="175.00000000000003"
+              >
+                <a
+                  class="block text-center text-xs text-zinc-300 hover:text-white transition-colors"
+                  href="/profile/GCOUNTERPARTYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACPTY"
+                >
+                  <div
+                    class="font-mono"
+                  >
+                    GCOUNTERPA...CPTY
+                  </div>
+                  <div
+                    class="text-[10px] text-zinc-500 mt-0.5"
+                  >
+                    0.02592
+                     XLM/d
+                  </div>
+                </a>
+              </foreignobject>
+            </g>
+          </svg>
+        </div>
+        <div
+          class="mt-4 flex items-center gap-6 text-xs text-zinc-500"
+        >
+          <div
+            class="flex items-center gap-2"
+          >
+            <div
+              class="w-3 h-3 rounded-full bg-emerald-500"
+            />
+            <span>
+              Incoming
+            </span>
+          </div>
+          <div
+            class="flex items-center gap-2"
+          >
+            <div
+              class="w-3 h-3 rounded-full bg-red-500"
+            />
+            <span>
+              Outgoing
+            </span>
+          </div>
+        </div>
+      </div>
       <section
         class="card p-6"
       >
@@ -1897,8 +2809,19 @@ exports[`ProfileView snapshots > renders a profile with outgoing streams only > 
               </div>
             </span>
             <span
-              class="font-mono text-emerald-300"
+              class="font-mono text-emerald-300 flex items-center gap-1.5"
             >
+              <img
+                alt=""
+                aria-hidden="true"
+                class="inline-block shrink-0 rounded-full align-middle "
+                data-testid="token-icon"
+                data-token="XLM"
+                height="16"
+                src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2016%2016%22%20width%3D%2216%22%20height%3D%2216%22%3E%3Ccircle%20cx%3D%228%22%20cy%3D%228%22%20r%3D%228%22%20fill%3D%22%2314B6EB%22%2F%3E%3Cpath%20d%3D%22M8%202.5L9.3%206.7L13.5%208L9.3%209.3L8%2013.5L6.7%209.3L2.5%208L6.7%206.7Z%22%20fill%3D%22white%22%2F%3E%3C%2Fsvg%3E"
+                style="width: 16px; height: 16px;"
+                width="16"
+              />
               0.0001
                
               XLM
@@ -1967,8 +2890,31 @@ exports[`ProfileView snapshots > renders an empty profile > profile-empty 1`] = 
           </div>
         </div>
         <div
-          class="flex items-center gap-3"
+          class="flex items-center gap-3 flex-wrap"
         >
+          <a
+            aria-label="Fund this project: start a stream to GPROFILEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPRFL"
+            class="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 min-h-[44px] rounded-lg border transition-all border-violet-500/50 bg-violet-500/10 text-violet-200 hover:border-violet-400 hover:text-white hover:bg-violet-500/20"
+            href="/app/streams/new?beneficiary=GPROFILEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPRFL"
+            title="Start a vesting stream to this account"
+          >
+            <svg
+              aria-hidden="true"
+              class="h-4 w-4 shrink-0"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 5v14M5 12h14"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            Fund this project
+          </a>
           <div
             class="relative inline-flex items-center"
           >
@@ -1998,6 +2944,29 @@ exports[`ProfileView snapshots > renders an empty profile > profile-empty 1`] = 
               </span>
             </button>
           </div>
+          <a
+            aria-label="Invite to Drips"
+            class="text-sm text-zinc-400 hover:text-white border border-white/10 rounded-lg px-3 py-2 transition-colors flex items-center gap-1.5"
+            data-testid="invite-to-drips-btn"
+            href="mailto:?subject=Check%20out%20GPROFILEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPRFL%20on%20Drips&body=Check%20out%20GPROFILEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPRFL's%20streaming%20profile%20on%20Drips%3A%20http%3A%2F%2Flocalhost%3A3000%2F"
+            title="Invite via email"
+          >
+            <svg
+              aria-hidden="true"
+              class="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+              />
+            </svg>
+            Invite to Drips
+          </a>
         </div>
       </div>
       <div
@@ -2012,8 +2981,19 @@ exports[`ProfileView snapshots > renders an empty profile > profile-empty 1`] = 
             Total Outgoing
           </p>
           <p
-            class="text-lg font-bold text-white"
+            class="text-lg font-bold text-white flex items-center gap-1.5"
           >
+            <img
+              alt=""
+              aria-hidden="true"
+              class="inline-block shrink-0 rounded-full align-middle "
+              data-testid="token-icon"
+              data-token="XLM"
+              height="16"
+              src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2016%2016%22%20width%3D%2216%22%20height%3D%2216%22%3E%3Ccircle%20cx%3D%228%22%20cy%3D%228%22%20r%3D%228%22%20fill%3D%22%2314B6EB%22%2F%3E%3Cpath%20d%3D%22M8%202.5L9.3%206.7L13.5%208L9.3%209.3L8%2013.5L6.7%209.3L2.5%208L6.7%206.7Z%22%20fill%3D%22white%22%2F%3E%3C%2Fsvg%3E"
+              style="width: 16px; height: 16px;"
+              width="16"
+            />
             0.0
              XLM
           </p>
@@ -2032,8 +3012,19 @@ exports[`ProfileView snapshots > renders an empty profile > profile-empty 1`] = 
             Total Inbound
           </p>
           <p
-            class="text-lg font-bold text-emerald-400"
+            class="text-lg font-bold text-emerald-400 flex items-center gap-1.5"
           >
+            <img
+              alt=""
+              aria-hidden="true"
+              class="inline-block shrink-0 rounded-full align-middle "
+              data-testid="token-icon"
+              data-token="XLM"
+              height="16"
+              src="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2016%2016%22%20width%3D%2216%22%20height%3D%2216%22%3E%3Ccircle%20cx%3D%228%22%20cy%3D%228%22%20r%3D%228%22%20fill%3D%22%2314B6EB%22%2F%3E%3Cpath%20d%3D%22M8%202.5L9.3%206.7L13.5%208L9.3%209.3L8%2013.5L6.7%209.3L2.5%208L6.7%206.7Z%22%20fill%3D%22white%22%2F%3E%3C%2Fsvg%3E"
+              style="width: 16px; height: 16px;"
+              width="16"
+            />
             0.0
              XLM
           </p>
