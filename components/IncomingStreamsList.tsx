@@ -72,6 +72,13 @@ export default function IncomingStreamsList({ publicKey, refreshKey }: IncomingS
 
   if (streams.length === 0) return null;
 
+  const totalDailyPerToken = new Map<string, bigint>();
+  streams.forEach(stream => {
+    const ratePerDay = stream.ratePerSec * 86400n;
+    const current = totalDailyPerToken.get(stream.token) ?? 0n;
+    totalDailyPerToken.set(stream.token, current + ratePerDay);
+  });
+
   const totalPages = Math.ceil(streams.length / PAGE_SIZE);
   const startIdx = (currentPage - 1) * PAGE_SIZE;
   const endIdx = startIdx + PAGE_SIZE;
@@ -94,9 +101,18 @@ export default function IncomingStreamsList({ publicKey, refreshKey }: IncomingS
   return (
     <div className="card p-5 mb-6">
       <div className="flex items-center justify-between gap-3 mb-4">
-        <div>
+        <div className="flex-1">
           <h2 className="text-lg font-semibold">Incoming Streams</h2>
           <p className="text-sm text-zinc-500">Accounts streaming tokens to your wallet</p>
+          {totalDailyPerToken.size > 0 && (
+            <div className="flex flex-wrap gap-2 mt-2">
+              {Array.from(totalDailyPerToken.entries()).map(([token, dailyAmount]) => (
+                <span key={token} className="inline-flex items-center gap-1 text-xs bg-emerald-500/10 border border-emerald-500/20 rounded px-2 py-1 text-emerald-300">
+                  Est. today +{stroopsToXlm(dailyAmount)} {tokenLabel(token)}
+                </span>
+              ))}
+            </div>
+          )}
         </div>
           <button
             onClick={fetchStreams}

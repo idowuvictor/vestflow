@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useMemo, useState } from "react";
+import { useRouter } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import ScheduleCard from "@/components/ScheduleCard";
 import RecentlyViewedSchedules from "@/components/RecentlyViewedSchedules";
@@ -40,6 +41,7 @@ import GiveModal from "@/components/GiveModal";
 import OnboardingTour from "@/components/OnboardingTour";
 import CycleCountdown from "@/components/CycleCountdown";
 import IncomingStreamsList from "@/components/IncomingStreamsList";
+import RecentlyClosedStreamsList from "@/components/RecentlyClosedStreamsList";
 import StreamListSkeleton from "@/components/StreamListSkeleton";
 import TopUpModal from "@/components/TopUpModal";
 import StreamExpiryBanner from "@/components/StreamExpiryBanner";
@@ -486,20 +488,25 @@ export default function DashboardPage() {
   }, [publicKey, schedules]);
 
   // Keyboard shortcut Shift+G to open Give modal (#816)
+  // Keyboard shortcut Shift+S to open New Stream form (#1038)
+  const router = useRouter();
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
+      const target = e.target as HTMLElement;
+      if (target && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA')) {
+        return;
+      }
       if (e.shiftKey && e.key === 'G') {
-        const target = e.target as HTMLElement;
-        if (target && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA')) {
-          return;
-        }
         e.preventDefault();
         setShowGiveModal(true);
+      } else if (e.shiftKey && e.key === 'S') {
+        e.preventDefault();
+        router.push('/app/streams/new');
       }
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, []);
+  }, [router]);
 
   // Stream notifications for incoming streams
   useStreamNotifications(publicKey ? schedules : null, publicKey);
@@ -681,6 +688,7 @@ export default function DashboardPage() {
         {/* Summary stats — animated count-up (#270) */}
         {publicKey && stats && <AnimatedStats stats={stats} schedules={schedules} publicKey={publicKey} />}
         {publicKey && <IncomingStreamsList publicKey={publicKey} refreshKey={refreshKey} />}
+        {publicKey && <RecentlyClosedStreamsList publicKey={publicKey} refreshKey={refreshKey} />}
         {publicKey && <ActivityFeed publicKey={publicKey} refreshKey={refreshKey} />}
         {publicKey && <StreamsAnalyticsSummary publicKey={publicKey} refreshKey={refreshKey} />}
         {publicKey && loading ? (
